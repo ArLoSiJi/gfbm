@@ -53,6 +53,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         </property>
     </bean>
 
+
+
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
 
 </beans>

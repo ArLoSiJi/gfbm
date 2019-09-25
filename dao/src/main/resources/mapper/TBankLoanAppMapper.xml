@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoyu.dao.TBankLoanAppMapper">
+
+  <resultMap id="BaseResultMap" type="com.xiaoyu.domain.TBankLoanApp">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="serialnumber" jdbcType="VARCHAR" property="serialnumber" />
+    <result column="businessType" jdbcType="VARCHAR" property="businesstype" />
+    <result column="unitName" jdbcType="VARCHAR" property="unitname" />
+    <result column="bankName" jdbcType="VARCHAR" property="bankname" />
+    <result column="currencyCode" jdbcType="VARCHAR" property="currencycode" />
+    <result column="currencyName" jdbcType="VARCHAR" property="currencyname" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="dates" jdbcType="TIMESTAMP" property="dates" />
+    <result column="applicant" jdbcType="VARCHAR" property="applicant" />
+    <result column="applicationFormStatus" jdbcType="INTEGER" property="applicationformstatus" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="createByName" jdbcType="VARCHAR" property="createbyname" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="updateByName" jdbcType="VARCHAR" property="updatebyname" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, serialnumber, businessType, unitName, bankName, currencyCode, currencyName, money, 
+    dates, applicant, applicationFormStatus, createBy, createByName, createTime, updateBy, 
+    updateByName, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_bank_loan_app
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_bank_loan_app
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xiaoyu.domain.TBankLoanApp">
+    insert into t_bank_loan_app (id, serialnumber, businessType, 
+      unitName, bankName, currencyCode, 
+      currencyName, money, dates, 
+      applicant, applicationFormStatus, createBy, 
+      createByName, createTime, updateBy, 
+      updateByName, updateTime)
+    values (#{id,jdbcType=BIGINT}, #{serialnumber,jdbcType=VARCHAR}, #{businesstype,jdbcType=VARCHAR}, 
+      #{unitname,jdbcType=VARCHAR}, #{bankname,jdbcType=VARCHAR}, #{currencycode,jdbcType=VARCHAR}, 
+      #{currencyname,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{dates,jdbcType=TIMESTAMP}, 
+      #{applicant,jdbcType=VARCHAR}, #{applicationformstatus,jdbcType=INTEGER}, #{createby,jdbcType=VARCHAR}, 
+      #{createbyname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updateby,jdbcType=VARCHAR}, 
+      #{updatebyname,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaoyu.domain.TBankLoanApp">
+    insert into t_bank_loan_app
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="serialnumber != null">
+        serialnumber,
+      </if>
+      <if test="businesstype != null">
+        businessType,
+      </if>
+      <if test="unitname != null">
+        unitName,
+      </if>
+      <if test="bankname != null">
+        bankName,
+      </if>
+      <if test="currencycode != null">
+        currencyCode,
+      </if>
+      <if test="currencyname != null">
+        currencyName,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="dates != null">
+        dates,
+      </if>
+      <if test="applicant != null">
+        applicant,
+      </if>
+      <if test="applicationformstatus != null">
+        applicationFormStatus,
+      </if>
+      <if test="createby != null">
+        createBy,
+      </if>
+      <if test="createbyname != null">
+        createByName,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="updateby != null">
+        updateBy,
+      </if>
+      <if test="updatebyname != null">
+        updateByName,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="serialnumber != null">
+        #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="currencycode != null">
+        #{currencycode,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyname != null">
+        #{currencyname,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="dates != null">
+        #{dates,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applicant != null">
+        #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationformstatus != null">
+        #{applicationformstatus,jdbcType=INTEGER},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+      <if test="createbyname != null">
+        #{createbyname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null">
+        #{updateby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatebyname != null">
+        #{updatebyname,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiaoyu.domain.TBankLoanApp">
+    update t_bank_loan_app
+    <set>
+      <if test="serialnumber != null">
+        serialnumber = #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        businessType = #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        unitName = #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        bankName = #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="currencycode != null">
+        currencyCode = #{currencycode,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyname != null">
+        currencyName = #{currencyname,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="dates != null">
+        dates = #{dates,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applicant != null">
+        applicant = #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationformstatus != null">
+        applicationFormStatus = #{applicationformstatus,jdbcType=INTEGER},
+      </if>
+      <if test="createby != null">
+        createBy = #{createby,jdbcType=VARCHAR},
+      </if>
+      <if test="createbyname != null">
+        createByName = #{createbyname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null">
+        updateBy = #{updateby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatebyname != null">
+        updateByName = #{updatebyname,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiaoyu.domain.TBankLoanApp">
+    update t_bank_loan_app
+    set serialnumber = #{serialnumber,jdbcType=VARCHAR},
+      businessType = #{businesstype,jdbcType=VARCHAR},
+      unitName = #{unitname,jdbcType=VARCHAR},
+      bankName = #{bankname,jdbcType=VARCHAR},
+      currencyCode = #{currencycode,jdbcType=VARCHAR},
+      currencyName = #{currencyname,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DECIMAL},
+      dates = #{dates,jdbcType=TIMESTAMP},
+      applicant = #{applicant,jdbcType=VARCHAR},
+      applicationFormStatus = #{applicationformstatus,jdbcType=INTEGER},
+      createBy = #{createby,jdbcType=VARCHAR},
+      createByName = #{createbyname,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      updateByName = #{updatebyname,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

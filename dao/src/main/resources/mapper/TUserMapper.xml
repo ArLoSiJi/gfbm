@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoyu.dao.TUserMapper">
+  <resultMap id="BaseResultMap" type="com.xiaoyu.domain.TUser">
+    <result column="id" jdbcType="BIGINT" property="id"/>
+    <result column="userId" jdbcType="VARCHAR" property="userid"/>
+    <result column="userName" jdbcType="VARCHAR" property="username"/>
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword"/>
+    <result column="userGender" jdbcType="INTEGER" property="usergender"/>
+    <result column="userAge" jdbcType="INTEGER" property="userage"/>
+    <result column="userAddress" jdbcType="VARCHAR" property="useraddress"/>
+    <result column="userPower" jdbcType="INTEGER" property="userpower"/>
+    <result column="createById" jdbcType="VARCHAR" property="createbyid"/>
+    <result column="createByName" jdbcType="VARCHAR" property="createbyname"/>
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime"/>
+    <result column="updateById" jdbcType="VARCHAR" property="updatebyid"/>
+    <result column="updateByName" jdbcType="VARCHAR" property="updatebyname"/>
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime"/>
+  </resultMap>
+  <insert id="insert" parameterType="com.xiaoyu.domain.TUser">
+    insert into t_user (id, userId, userName, 
+      userPassword, userGender, userAge, 
+      userAddress, userPower, createById, 
+      createByName, createTime, updateById, 
+      updateByName, updateTime)
+    values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{userpassword,jdbcType=VARCHAR}, #{usergender,jdbcType=INTEGER}, #{userage,jdbcType=INTEGER}, 
+      #{useraddress,jdbcType=VARCHAR}, #{userpower,jdbcType=INTEGER}, #{createbyid,jdbcType=VARCHAR}, 
+      #{createbyname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatebyid,jdbcType=VARCHAR}, 
+      #{updatebyname,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaoyu.domain.TUser">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="userpassword != null">
+        userPassword,
+      </if>
+      <if test="usergender != null">
+        userGender,
+      </if>
+      <if test="userage != null">
+        userAge,
+      </if>
+      <if test="useraddress != null">
+        userAddress,
+      </if>
+      <if test="userpower != null">
+        userPower,
+      </if>
+      <if test="createbyid != null">
+        createById,
+      </if>
+      <if test="createbyname != null">
+        createByName,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="updatebyid != null">
+        updateById,
+      </if>
+      <if test="updatebyname != null">
+        updateByName,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usergender != null">
+        #{usergender,jdbcType=INTEGER},
+      </if>
+      <if test="userage != null">
+        #{userage,jdbcType=INTEGER},
+      </if>
+      <if test="useraddress != null">
+        #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userpower != null">
+        #{userpower,jdbcType=INTEGER},
+      </if>
+      <if test="createbyid != null">
+        #{createbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="createbyname != null">
+        #{createbyname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatebyid != null">
+        #{updatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatebyname != null">
+        #{updatebyname,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+
+  <insert id="regosterTUser" parameterType="com.xiaoyu.domain.TUser">
+   insert into t_user (id, userId, userName,
+      userPassword, userGender, userAge,
+      userAddress, userPower, createById,
+      createByName, createTime, updateById,
+      updateByName, updateTime)
+    values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+      #{userpassword,jdbcType=VARCHAR}, #{usergender,jdbcType=INTEGER}, #{userage,jdbcType=INTEGER},
+      #{useraddress,jdbcType=VARCHAR}, #{userpower,jdbcType=INTEGER}, #{createbyid,jdbcType=VARCHAR},
+      #{createbyname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatebyid,jdbcType=VARCHAR},
+      #{updatebyname,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+</mapper>
